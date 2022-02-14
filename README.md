@@ -26,14 +26,14 @@
 - Prometheus installieren, falls es noch nicht installiert ist
 - Die Konfigurationsdatei "prometheus.yml" mit folgenden Änderungen anpassen:
 
->		
->    - job_name: 'ASPDice'
->   - scrape_interval: 5s
->   - static_configs:
->      - targets: ['localhost:7201']
->   - metrics_path: /metrics-text
->   - scheme: https
->
+		
+		- job_name: 'ASPDice'
+		scrape_interval: 5s
+		static_configs:
+		- targets: ['localhost:7201']
+		metrics_path: /metrics-text
+		scheme: https
+
 
 - Prometheus mit Aufruf vom "prometheus.exe" starten
 - Über den Browser mit "localhost:9090" den Client von Prometheus starten
