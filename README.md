@@ -39,7 +39,7 @@
 - Prometheus mit Aufruf vom "prometheus.exe" starten
 - Über den Browser mit "localhost:9090" den Client von Prometheus starten
 - Den Befehl: "application_httprequests_active" eingeben und auf "Execute" klicken
-- Wenn alles gut läuft sollte in etwa :"application_httprequests_active{app="ASPDice", env="development", instance="localhost:7201", job="ASPDice", server="KOSTASPC"}" erscheinen.
+- Wenn alles gut läuft sollte in etwa :  "application_httprequests_active{app="ASPDice", env="development", instance="localhost:7201", job="ASPDice", server="KOSTASPC"}" erscheinen.
 - Prometheus ist jetzt verbunden
 
 
