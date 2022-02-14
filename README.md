@@ -18,6 +18,7 @@
 	Möchte man ohne "swagger" starten, dann direkt im Browser folgendes eingeben: 
 	1. "https://localhost:7201/Dice", um einen Wurf durchzuführen
 	2. "https://localhost:7201/DiceList", um die gesamte Liste aller bis jetzt geworfenen Werte zu bekommen
+	
 	Die 7201 kann eventuell eine andere Nummer sein.
 	Bitte überprüfen welche Nummer das ist. 
 	Steht in der URL, die im Browser erscheint, wenn das Programm gestartet wird
