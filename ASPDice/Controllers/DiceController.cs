@@ -6,7 +6,7 @@ namespace ASPDice.Controllers
     [ApiController]  //Damit es im Developmentmodus über Swagger läuft
     [Route("[controller]")] //Damit es im Developmentmodus über Swagger läuft
 
-    public class DiceController : DiceBaseController
+    public class DiceController : DiceBaseController // Der Name des exportierten Services ist der Name der Klasse - "Controller" = "Dice"
     {
         private readonly IMetrics _metrics;
 
@@ -15,7 +15,7 @@ namespace ASPDice.Controllers
             _metrics = metrics;
         }
 
-        [HttpGet(Name = "GetDice")]   //Name des exportierten Services
+        [HttpGet(Name = "GetDice")] //Beim Http GET Request wird GetDice aufgerufen
         public int GetDice()
         {
             // Nur Einfachkeit als Test Projekt. Besser mit Static Rnd Variable und locks für Thread-Sicherheit
@@ -28,7 +28,6 @@ namespace ASPDice.Controllers
                 DiceList.Add(aDiceRolled);
             }
             _metrics.Measure.Counter.Increment(MetricsDefinitions.RolledDiceCounter);
-//            _metrics.Measure.Histogram.Update(MetricsDefinitions.RolledDiceList, aDiceRolled);
             return aDiceRolled;
         }
 

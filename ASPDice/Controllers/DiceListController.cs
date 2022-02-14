@@ -7,7 +7,7 @@ namespace ASPDice.Controllers
 
     public class DiceListController : DiceBaseController
     {
-        [HttpGet(Name = "GetList")]   //Name des exportierten Services
+        [HttpGet(Name = "GetList")] //Beim Http GET Request wird GetList aufgerufen
         public List<int> GetList()
         {
             lock (ListLock)

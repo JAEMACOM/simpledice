@@ -17,6 +17,7 @@ builder.Host.UseMetrics(Options =>
     {
         endpointsOptions.MetricsTextEndpointOutputFormatter = new MetricsPrometheusTextOutputFormatter();
         endpointsOptions.MetricsEndpointOutputFormatter = new MetricsPrometheusProtobufOutputFormatter();
+        //Keine Ausgaben über das Environement machen. z.B Versionen usw..
         endpointsOptions.EnvironmentInfoEndpointEnabled = false;
     };
 });
