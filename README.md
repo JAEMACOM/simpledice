@@ -20,8 +20,8 @@
 		Die 7201 kann eventuell eine andere nummer sein, bitte überprüfen welche Nummer das ist, in der URL, die im Browser erscheint, wenn das Programm gestartet wird
 
 ## Prometheus konfigurieren und verbinden:
-	1. Prometheus installieren, falls es noch nicht installiert ist
-	2. Die konfigurationsdatei "prometheus.yml" mit folgenden Änderungen anpassen:
+- Prometheus installieren, falls es noch nicht installiert ist
+- Die konfigurationsdatei "prometheus.yml" mit folgenden Änderungen anpassen:
 
 	  - job_name: 'ASPDice'
     scrape_interval: 5s
@@ -30,11 +30,11 @@
     metrics_path: /metrics-text
     scheme: https
 
-	3. Prometheus mit Aufruf vom "prometheus.exe" starten
-	4. Über den Browser mit "localhost:9090" den Client von Prometheus starten
-	5. Den Befehl: "application_httprequests_active" eingeben und auf "Execute" klicken
-	6. Wenn alles gut läuft sollte in etwa :"application_httprequests_active{app="ASPDice", env="development", instance="localhost:7201", job="ASPDice", server="KOSTASPC"}" erscheinen.
-	7. Prometheus ist jetzt verbunden
+- Prometheus mit Aufruf vom "prometheus.exe" starten
+- Über den Browser mit "localhost:9090" den Client von Prometheus starten
+- Den Befehl: "application_httprequests_active" eingeben und auf "Execute" klicken
+- Wenn alles gut läuft sollte in etwa :"application_httprequests_active{app="ASPDice", env="development", instance="localhost:7201", job="ASPDice", server="KOSTASPC"}" erscheinen.
+- Prometheus ist jetzt verbunden
 
 
-Viel Spass beim würfeln und möge die 6 bei Dir sein! :)
+Viel Spass beim Würfeln und möge die 6 immer bei Dir sein! :)
