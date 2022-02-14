@@ -27,10 +27,10 @@
 - Die Konfigurationsdatei "prometheus.yml" mit folgenden Änderungen anpassen:
 
 >		
->   - - job_name: 'ASPDice'
+>    - job_name: 'ASPDice'
 >   - scrape_interval: 5s
 >   - static_configs:
->   -   - targets: ['localhost:7201']
+>      - targets: ['localhost:7201']
 >   - metrics_path: /metrics-text
 >   - scheme: https
 >
