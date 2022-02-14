@@ -1,31 +1,40 @@
 # simpledice
 
-## Aufgabe
+## Kompilieren
+- ASPDice.sln mit Visual Studio 2022 öffnen
+- Sollte es zu Kompilierfehler kommen:
+	1. Mit rechter Maustaste auf "Abhängigkeiten" klicken
+	2. Klicken auf "NuGet-Pakette verwalten"
+	3. Klicken auf Tab "Nuget-ASPDice" und danach "Durchsuchen"
+	4. Suche nach "App.Metrics.AspNetCore"
+	5. Klicken auf der Auswahl auf "App.Metrics.AspNetCore" und danach "Installieren"
+	6. Suche nach "App.Metrics.AspNetCore.EndPoints" und installiere
+	7. Suche nach "App.Metrics.AspNetCore.Tracking" und installiere
+	8. Suche nach "App.Metrics.Formatters.Prometheus" und installiere
 
-Bitte setze die folgende Beschreibung eines Backlog Items um.
+	Wenn das Programm startet im Development Modus wird es mit "swagger" gestartet.
+	Jetzt kann man die Services testen.
+	Möchte man ohne "swagger" starten, dann direkt über 
+		1. "localhost:7201/Dice", um einen Wurf durchzuführen
+		2. "localhost:7201/DiceList", um die gesamte Liste aller bis jetzt geworfenen Werte zu bekommen
+		Die 7201 kann eventuell eine andere nummer sein, bitte überprüfen welche Nummer das ist, in der URL, die im Browser erscheint, wenn das Programm gestartet wird
 
-Bitte erstelle zur Bearbeitung der Aufgabe einen Fork dieses Repositories in deinem eigenen GitHub-Account.
-Lade deine Arbeitsergebnisse in Form von Pull Requests (werden von uns nicht gereviewed) in einen Branch mit einem Namen dieser Form:
+## Prometheus konfigurieren und verbinden:
+	1. Prometheus installieren, falls es noch nicht installiert ist
+	2. Die konfigurationsdatei "prometheus.yml" mit folgenden Änderungen anpassen:
 
-```
-releases/<dein Name>
-```
+	  - job_name: 'ASPDice'
+    scrape_interval: 5s
+    static_configs:
+      - targets: ['localhost:7201']
+    metrics_path: /metrics-text
+    scheme: https
 
-Für die Umsetzung soll nach Möglichkeit Microsoft .Net Core 5.0 verwendet werden.
-Nächste Woche kannst du uns im Termin dein Ergebnis über Teams vorstellen.
-Alle weiteren Technologien und Lösungen, die dir dabei helfen deine Implementierung besser zu demonstrieren, kannst du gern nach Belieben mit einbeziehen.
+	3. Prometheus mit Aufruf vom "prometheus.exe" starten
+	4. Über den Browser mit "localhost:9090" den Client von Prometheus starten
+	5. Den Befehl: "application_httprequests_active" eingeben und auf "Execute" klicken
+	6. Wenn alles gut läuft sollte in etwa :"application_httprequests_active{app="ASPDice", env="development", instance="localhost:7201", job="ASPDice", server="KOSTASPC"}" erscheinen.
+	7. Prometheus ist jetzt verbunden
 
-### User Story
 
-Als technisch versierter Benutzer kann ich eine Rest API ansprechen, um ein Würfelergebnis (1-6) zu erhalten.
-
-### Akzeptanzkriterien
-
-- Die Anwendung ist dokumentiert, so dass alle Informationen für Build und Betrieb vorhanden sind. (Das kannst du einfach an dieses Dokument anfügen.)
-- Würfelergebnisse werden während der Laufzeit gespeichert und können ebenso noch einmal vollständig ausgegeben werden.
-- Die Anwendung gibt Metriken für Prometheus aus und es kann überwacht werden, wie oft gewürfelt wurde.
-
-## Anmerkungen
-
-Bei Fragen, kannst du dich gern an uns wenden.  
-Viel Erfolg! :)
+Viel Spass beim würfeln und möge die 6 bei Dir sein! :)
